@@ -1,5 +1,9 @@
 sequenceDiagram
-    Alice->>+John: Hello John, how are you?
-    Alice->>+John: John, can you hear me?
-    John-->>-Alice: Hi Alice, I can hear you!
-    John-->>-Alice: I feel great!
+    Browser->>+main.js: Load and execute
+    main.js->>+main.js: render
+    main.js->>+Metals.js: Call metal choices
+    Metals.js-->>+JSON Server API: GET request to /metals
+    JSON Server API->>+database.json: Read metals data
+    JSON Server API->>+Metals.js: ok
+    database.json-->>+JSON Server API: Return metals array
+    JSON Server API-->>+Metals.js: 
