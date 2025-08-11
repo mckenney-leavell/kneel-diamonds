@@ -1,9 +1,62 @@
 sequenceDiagram
-    Browser->>+main.js: Load and execute
-    main.js->>+main.js: render
-    main.js->>+Metals.js: Call metal choices
-    Metals.js-->>+JSON Server API: GET request to /metals
-    JSON Server API->>+database.json: Read metals data
-    JSON Server API->>+Metals.js: ok
-    database.json-->>+JSON Server API: Return metals array
-    JSON Server API-->>+Metals.js: 
+
+main.js ->> Styles.js: give me styles HTML
+
+Styles.js ->> JSON Server API: GET request to styles data
+
+JSON Server API ->> database.js: read styles data
+
+database.js -->> JSON Server API: return styles array
+
+JSON Server API -->> Styles.js: return styles data
+
+Loop
+    Note over Styles.js: loops styles data
+
+    Styles.js ->> Styles.js: render HTML to list styles
+
+End
+
+Styles.js -->> main.js: here is the Styles.js HTML
+
+
+main.js ->> Sizes.js: give me sizes HTML
+
+Sizes.js ->> JSON Server API: GET request to sizes data
+
+JSON Server API ->> database.js: read sizes data
+
+database.js -->> JSON Server API: return sizes array
+
+JSON Server API -->> Sizes.js: return sizes data
+
+Loop
+    Note over Sizes.js: loops sizes data
+
+    Sizes.js ->> Sizes.js: render HTML to list sizes
+
+End
+
+Sizes.js -->> main.js: here is the Sizes.js HTML
+
+
+main.js ->> Metals.js: give me metals HTML
+
+Metals.js ->> JSON Server API: GET request to metals data
+
+JSON Server API ->> database.js: read metals data
+
+database.js -->> JSON Server API: return metals array
+
+JSON Server API -->> Metals.js: return metals data
+
+Loop
+    Note over Metals.js: loops metals data
+
+    Metals.js ->> Metals.js: render HTML to list metals
+
+End
+
+Metals.js -->> main.js: here is the Metals.js HTML
+
+main.js ->> DOM: Update innerHTML
