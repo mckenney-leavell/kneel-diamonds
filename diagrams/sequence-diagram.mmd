@@ -60,3 +60,20 @@ End
 Metals.js -->> main.js: here is the Metals.js HTML
 
 main.js ->> DOM: Update innerHTML
+
+TransientState.js -->> Styles.js: handle change to style selection
+
+Styles.js ->> TransientState.js: store change in new object
+
+TransientState.js -->> Sizes.js: handle change to size selection
+
+Sizes.js ->> TransientState.js: store change in new object
+
+TransientState.js -->> Metals.js: handle change to metal selection
+
+Metals.js ->> TransientState.js: store change in new object
+
+OrderButton.js -->> TransientState.js: store order choices permanently
+
+TransientState.js ->> OrderButton.js: ok
+
