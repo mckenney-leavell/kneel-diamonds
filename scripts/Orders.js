@@ -6,7 +6,7 @@ export const Orders = async () => {
         (order) => {
             const orderPrice = order.metal.price + order.style.price + order.size.price
             return `
-                <div>Order #${order.id} cost $${orderPrice}</div>
+                <div class="eachOrder">Order #${order.id} costs $${orderPrice}</div>
             `
         }
     )
